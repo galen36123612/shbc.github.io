@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHBC official website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            max-width: 150px;
+        }
+        main {
+            padding: 2rem;
+        }
+        .product {
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        .product img {
+            max-width: 200px;
+            margin-right: 1rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        #languageSelector {
+            padding: 5px;
+        }
+        .product-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    .product-container {
+        display: flex;
+        max-width: 1200px;
+        background-color: #ffffff;
+    }
+    .product-image {
+        flex: 1;
+        padding: 20px;
+    }
+
+    .product-details {
+        flex: 1;
+        padding: 20px;
+    }
+    .product-title {
+        color: #333;
+        margin-bottom: 20px;
+    }
+    .product-info, .product-features {
+        margin-bottom: 20px;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    h1 {
+            font-size: 40px; /* Custom size for h1 */
+        }
+    h3 {
+        color: #ffffff;
+    }
+    .product-section {
+            padding: 20px;
+        }
+        .product-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .product-container {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+        .product-container img {
+            max-width: 200px;
+            margin-right: 20px;
+        }
+        .product-details {
+            max-width: 600px;
+        }
+        .product-details h2 {
+            margin-top: 0;
+        }
+        .slider-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .navigation {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .navigation button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .navigation button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .dots-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #717171;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./SHBC-logo.jpg" alt="Weider Logo" class="logo">
+        <select id="languageSelector">
+            <option value="en">English</option>
+            <option value="zh">中文</option>
+        </select>
+    </header>
+
+    <main>
+        <!-- English Content -->
+        <section id="content-en" class="language-content">
+            <section id="about">
+                <h1>About Us</h1>
+                <p>SHBC is a company dedicated to promoting probiotics, utilizing advanced AI technology to train sales representatives across various languages and cultural backgrounds.</p>
+            </section>
+
+            <section id="title">
+                <h1>Our hero products</h1>
+            </section>
+
+            <section id="product" class="product-section">
+    <!-- First Product (Intestinal Probiotics) -->
+    <div class="product-container">
+
+        <img src="./Immune_digestive.png" alt="Weider digestive & Immune support">
+        <div class="product-details">
+            <h2 class="product-title">Weider digestive & Immune support</h2>
+            <div class="product-info">
+                <h3>Product Information</h3>
+                <ul>
+                    <li>Form: Coarse granules + powder</li>
+                    <li>Packaging: 30 sachets per box / 3 grams per sachet</li>
+                    <li>Recommended Usage:
+                        <ul>
+                            <li>Adults: 2-3 sachets per day for enhanced protection</li>
+                            <li>Children: 1 sachet per day for basic support</li>
+                            <li>Can be consumed before or after meals</li>
+                            <li>Can be taken directly into the mouth to dissolve or dissolved in a cold drink (below 30°C)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-features">
+                <h3>About This Product</h3>
+                <ul>
+                    <li>BACO17 patented active probiotics (Bacillus coagulans), LCW23 patented Lactobacillus paracasei, ST4 patented Streptococcus thermophilus: Acid and heat resistant, safely colonize in the intestines, enhance probiotic survival rate, strengthen the immune system, and relieve intestinal discomfort (constipation/diarrhea/bloating).</li>
+                    <li>13 types of composite probiotics: Provide comprehensive health benefits.</li>
+                    <li>3 types of prebiotics: Maintain intestinal flora balance.</li>
+                    <li>5 types of nutrients: Maintain intestinal mucosal health.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Product (Sleep Probiotics) -->
+    <div class="product-container">
+        <img src="./Sleep_support.png" alt="Weider Probiotics Sleep Support">
+        <div class="product-details">
+            <h2 class="product-title">Weider Probiotics Sleep Support</h2>
+            <div class="product-info">
+                <h3>Product Information</h3>
+                <ul>
+                    <li>Form: Powder</li>
+                    <li>Packaging: 30 sachets per box / 3 grams per sachet</li>
+                    <li>Recommended Usage:
+                        <ul>
+                            <li>Adults: 1-2 times daily, 1 sachet each time</li>
+                            <li>Recommended to be taken before bedtime</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-features">
+                <h3>About This Product</h3>
+                <ul>
+                    <li>Patented BIOJOVIAL® ProGA28 Sleep Probiotics, clinically proven to aid sleep</li>
+                    <li>Contains 100mg of GABA; Japanese research confirms its effectiveness in improving sleep</li>
+                    <li>Only product on the market with South African Ashwagandha, with twice the active ingredients compared to other products, helps relax by 71%</li>
+                    <li>Expected to be launched in 2025</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+            <section id="partners">
+                <h2>Partners</h2>
+                <img src="./DKSH.png" width="90" height="36" alt="partners">
+            </section>
+
+            <section id="distribution">
+                <h2>Distribution Channels</h2>
+                <img src="./Wellcome.png" width="50" height="50" alt="distribution1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="./YATA.png" width="50" height="50" alt="distribution2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="./CITI.png" width="50" height="50" alt="distribution3">
+            </section>
+        </section>
+
+        <!-- Chinese Content -->
+        <section id="content-zh" class="language-content" style="display: none;">
+            <section id="about">
+                <h2>關於我們</h2>
+                <p>SHBC是一家專注於益生菌推廣的公司，擁有先進的AI技術，用於培訓不同語言和文化背景的銷售員。</p>
+            </section>
+
+            <section id="title">
+                <h2>我們的產品</h2>
+                <p>以下是我們的熱銷產品。</p>
+            </section>
+
+            <section id="product" class="product-section">
+              <!-- First Product (腸道益生菌) -->
+              <div class="product-container">
+                <img src="./Immune_digestive.png" alt="威德益生菌 腸道抗敏配方">
+                <div class="product-details">
+                  <h2 class="product-title">威德 益生菌 保護力配方</h2>
+                  <div class="product-info">
+                    <h3>產品資訊</h3>
+                    <ul>
+                      <li>商品形式：粗顆粒+粉末</li>
+                      <li>包裝：每盒30包/每包3公克</li>
+                      <li>食用建議：
+                        <ul>
+                            <li>成人1天2-3包 加強保護</li>
+                            <li>孩童1天1包 基礎打底</li>
+                            <li>餐前餐後均可食用</li>
+                            <li>可將顆粒直接倒入口中使其溶化，或加入冷飲沖泡溶解後食用(小於30°C)</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="product-features">
+                <h3>關於此商品</h3>
+                <ul>
+                    <li>BACO17專利倍活菌(芽孢乳酸菌)、LCW23專利副乾酪乳桿菌、ST4專利嗜熱鏈球菌: 耐酸鹼耐熱，可安全抵達腸道定殖，提升益生菌存活率，增強免疫系統，改善腸道不適等症狀（便秘/腹瀉/脹氣)</li>
+                    <li>13種複合活菌: 更全面的提升整體健康。</li>
+                    <li>3種益生元(Prebiotics): 維持腸道菌叢平衡。</li>
+                    <li>5種營養素: 維持腸道黏膜健康。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Product (睡眠益生菌) -->
+    <div class="product-container">
+        <img src="./Sleep_support.png" alt="威德益生菌 睡眠支持">
+        <div class="product-details">
+            <h2 class="product-title">威德 益生菌 睡眠支持</h2>
+            <div class="product-info">
+                <h3>產品資訊</h3>
+                <ul>
+                    <li>商品形式：粉末</li>
+                    <li>包裝：每盒30包/每包3公克</li>
+                    <li>食用建議：
+                        <ul>
+                            <li>成人每日1-2次, 每次1包</li>
+                            <li>建議睡前食用</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+                <div class="product-features">
+                <h3>關於此商品</h3>
+                        <ul>
+                          <li>專利BIOJOVIAL® ProGA28 睡眠益生菌，臨床實證可幫助睡眠</li>
+                        <li>添加足量GABA 100mg，日本研究證實有效助眠</li>
+                          <li>市售唯一添加南非醉茄，高於市售2倍功效成分，幫助放鬆71%</li>
+                            <li>預計2025年上市</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="slider-container">
+                  <!-- Slide images -->
+                    <div class="slides">
+                        <img src="./award.png" alt="Image 1">
+                        <img src="./BACO17_1.png" alt="Image 2">
+                        <img src="./BACO17_2.png" alt="Image 3">
+                        <img src="./BACO17_3.png" alt="Image 4">
+                      </div>
+
+                      <!-- Navigation buttons -->
+                      <div class="navigation">
+                        <button class="prev" onclick="moveSlides(-1)">&#10094;</button>
+                        <button class="next" onclick="moveSlides(1)">&#10095;</button>
+                      </div>
+
+                      <!-- Dots -->
+                      <div class="dots-container">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                      </div>
+                  </section>
+
+            <section id="partners">
+                <h2>合作夥伴</h2>
+                <img src="./DKSH.png" width="90" height="36" alt="合作夥伴">
+            </section>
+
+            <section id="distribution">
+                <h2>銷售渠道</h2>
+                <img src="./Wellcome.png" width="50" height="50" alt="銷售渠道1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="./YATA.png" width="50" height="50" alt="銷售渠道2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="./CITI.png" width="50" height="50" alt="銷售渠道3">
+            </section>
+        </section>
+
+    </main>
+
+    <footer id="footer-zh" class="language-content" style="display: none;">
+        <h3>聯絡資訊</h3>
+        <p>地址: 台灣臺北市內湖區內湖路1段120巷16號4樓 </p>
+        <p>電話: (+886) 2 - 26587799</p>
+        <p>電子郵件: INFO@shbc.bio</p>
+    </footer>
+
+    <!-- English Footer -->
+    <footer id="footer-en" class="language-content">
+        <h3>Contact Information</h3>
+        <p>Address: 4th Floor, No. 16, Lane 120, Section 1, Neihu Road, Neihu District, Taipei City, Taiwan.</p>
+        <p>Phone: (+886) 2 - 26587799</p>
+        <p>Email: INFO@shbc.bio</p>
+    </footer>
+
+    <script>
+        const languageSelector = document.getElementById('languageSelector');
+        const contentEn = document.getElementById('content-en');
+        const contentZh = document.getElementById('content-zh');
+        const footerEn = document.getElementById('footer-en');
+        const footerZh = document.getElementById('footer-zh');
+
+        languageSelector.addEventListener('change', function() {
+          if (this.value === 'en') {
+              contentEn.style.display = 'block';
+              contentZh.style.display = 'none';
+              footerEn.style.display = 'block';
+              footerZh.style.display = 'none';
+          } else if (this.value === 'zh') {
+              contentEn.style.display = 'none';
+              contentZh.style.display = 'block';
+              footerEn.style.display = 'none';
+              footerZh.style.display = 'block';
+            }
+        });
+    </script>
+
+    <script>
+    let slideIndex = 0;
+    const slides = document.querySelector('.slides');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlides() {
+        const slideWidth = slides.clientWidth;
+        slides.style.transform = `translateX(${-slideIndex * slideWidth}px)`;
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === slideIndex);
+        });
+    }
+
+    function moveSlides(n) {
+        slideIndex = (slideIndex + n + dots.length) % dots.length;
+        showSlides();
+    }
+
+    function currentSlide(n) {
+        slideIndex = n - 1;
+        showSlides();
+    }
+
+    // Initialize the slider
+    showSlides();
+  </script>
+</body>
+</html>
