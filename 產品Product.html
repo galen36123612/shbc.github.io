@@ -142,61 +142,51 @@
         }
 
         /* iPhone 12 */
-        @media screen and (max-width: 428px) {
-            body {
-                font-size: 18px;  /* Increase base font size */
-            }
+        @media (max-width: 768px) { /* For iPhone and smaller screens */
+    .header {
+        padding: 0.5rem;
+    }
 
-            .header {
-                padding: 0.5rem;
-            }
+    .logo {
+        width: 60px;
+        height: 30px;
+    }
 
-            .logo {
-                width: 60px;
-                height: 30px;
-            }
+    .main-content {
+        padding: 1rem;
+    }
 
-            .lang-switch {
-                font-size: 16px;  /* Increase language switch font size */
-                padding: 0.7rem 1.2rem;  /* Increase button size for easier tapping */
-            }
+    .content-title {
+        font-size: 3rem; /* 將字體大小設置為原來的兩倍 */
+    }
 
-            .main-content {
-                flex-direction: column;
-                padding: 1rem;
-                gap: 1.5rem;
-            }
+    .content-section p {
+        font-size: 2.8rem; /* 將段落文字大小設置為原來的兩倍 */
+    }
 
-            .product-image {
-                min-width: unset;
-            }
+    .footer {
+        gap: 1rem;
+    }
 
-            .product-title {
-                font-size: 24px;  /* Larger title for mobile */
-            }
+    .footer a {
+        font-size: 1.5rem; /* 將footer字體大小設置為兩倍 */
+        padding: 0.8rem 1.6rem;
+    }
 
-            .info-section h2 {
-                font-size: 20px;  /* Larger section titles */
-            }
+    /* Additional styles based on your parameters */
+    .product-container img {
+        max-width: 50%;
+    }
 
-            ul {
-                margin-left: 0.5rem;  /* Reduce left margin for better space usage */
-            }
+    .product-details {
+        padding: 10px;
+        text-align: center;
+    }
 
-            li {
-                margin-bottom: 0.8rem;  /* Increase space between list items */
-            }
-
-            .footer {
-                gap: 1rem;
-                flex-wrap: wrap;  /* Allow wrapping for very small screens */
-            }
-
-            .footer a {
-                font-size: 18px;  /* Larger font for footer links */
-                padding: 0.6rem 1rem;
-            }
-        }
+    main {
+        padding: 1rem;
+    }
+}
     </style>
 </head>
 <body>
