@@ -114,11 +114,7 @@
         }
 
         /* iPhone 12 */
-       @media screen and (max-width: 428px) {
-            body {
-                font-size: 18px;  /* Increase base font size */
-            }
-
+       @media screen and (max-width: 768px) {
             .header {
                 padding: 0.5rem;
             }
@@ -128,14 +124,9 @@
                 height: 30px;
             }
 
-            .lang-switch {
-                font-size: 16px;  /* Increase language switch font size */
-                padding: 0.7rem 1.2rem;  /* Increase button size for easier tapping */
-            }
-
             .main-content {
                 flex-direction: column;
-                padding: 1rem;
+                padding: 2.0rem;
                 gap: 1.5rem;
             }
 
@@ -144,29 +135,20 @@
             }
 
             .product-title {
-                font-size: 24px;  /* Larger title for mobile */
+                font-size: 3.0rem;
             }
 
             .info-section h2 {
-                font-size: 20px;  /* Larger section titles */
-            }
-
-            ul {
-                margin-left: 0.5rem;  /* Reduce left margin for better space usage */
-            }
-
-            li {
-                margin-bottom: 0.8rem;  /* Increase space between list items */
+                font-size: 1.2rem;
             }
 
             .footer {
-                gap: 1rem;
-                flex-wrap: wrap;  /* Allow wrapping for very small screens */
+                gap: 3rem;
             }
 
             .footer a {
-                font-size: 18px;  /* Larger font for footer links */
-                padding: 0.6rem 1rem;
+                font-size: 2.2rem;
+                padding: 0.4rem 0.8rem;
             }
         }
     </style>
