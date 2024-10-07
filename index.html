@@ -96,10 +96,9 @@
         }
 
         /* iPhone 12 (390 x 844) */
-        @media screen and (max-width: 428px) {
+        @media screen and (max-width: 768px) {
             .header {
                 padding: 0.5rem;
-                height: 50px;
             }
 
             .logo {
@@ -107,36 +106,43 @@
                 height: 30px;
             }
 
-            .lang-switch {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.9rem;
+            .main-content {
+                flex-direction: column;
+                padding: 2.0rem;
+                gap: 1.5rem;
             }
 
-            .main-content {
-                height: calc(100vh - 100px);
+            .product-image {
+                min-width: unset;
+            }
+
+            .product-title {
+                font-size: 3.0rem;
+            }
+
+            .info-section h2 {
+                font-size: 1.2rem;
             }
 
             .footer {
-                gap: 1rem;
-                height: 50px;
-                padding: 0.5rem;
+                gap: 3rem;
             }
 
             .footer a {
-                font-size: 0.9rem;
+                font-size: 2.2rem;
                 padding: 0.4rem 0.8rem;
             }
         }
 
         /* 豎屏模式下的特殊處理 */
-        @media screen and (max-width: 428px) and (orientation: portrait) {
+        @media screen and (max-width: 768px) and (orientation: portrait) {
             .main-content {
                 height: calc(100vh - 100px);
             }
         }
 
         /* 橫屏模式下的特殊處理 */
-        @media screen and (max-height: 428px) and (orientation: landscape) {
+        @media screen and (max-height: 768px) and (orientation: landscape) {
             .header {
                 height: 40px;
             }
