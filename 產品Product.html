@@ -143,36 +143,60 @@
 
         /* iPhone 12 */
         @media screen and (max-width: 428px) {
-    .header {
-        padding: 0.5rem;
-    }
+            body {
+                font-size: 18px;  /* Increase base font size */
+            }
 
-    .logo {
-        width: 60px;
-        height: 30px;
-    }
+            .header {
+                padding: 0.5rem;
+            }
 
-    .main-content {
-        padding: 1rem;
-    }
+            .logo {
+                width: 60px;
+                height: 30px;
+            }
 
-    .content-title {
-        font-size: 1.8rem; /* 放大字體 */
-    }
+            .lang-switch {
+                font-size: 16px;  /* Increase language switch font size */
+                padding: 0.7rem 1.2rem;  /* Increase button size for easier tapping */
+            }
 
-    .content-section p {
-        font-size: 1.4rem; /* 調整文字大小 */
-    }
+            .main-content {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
 
-    .footer {
-        gap: 1rem;
-    }
+            .product-image {
+                min-width: unset;
+            }
 
-    .footer a {
-        font-size: 1.1rem; /* 調整footer字體大小 */
-        padding: 0.4rem 0.8rem;
-    }
-}
+            .product-title {
+                font-size: 24px;  /* Larger title for mobile */
+            }
+
+            .info-section h2 {
+                font-size: 20px;  /* Larger section titles */
+            }
+
+            ul {
+                margin-left: 0.5rem;  /* Reduce left margin for better space usage */
+            }
+
+            li {
+                margin-bottom: 0.8rem;  /* Increase space between list items */
+            }
+
+            .footer {
+                gap: 1rem;
+                flex-wrap: wrap;  /* Allow wrapping for very small screens */
+            }
+
+            .footer a {
+                font-size: 18px;  /* Larger font for footer links */
+                padding: 0.6rem 1rem;
+            }
+        }
     </style>
 </head>
 <body>
