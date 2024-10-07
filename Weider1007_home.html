@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHBC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            height: 60px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 40px;
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .main-content {
+            flex: 1;
+            width: 100%;
+            border: none;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            height: 60px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .footer a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 13寸MacBook Pro (2560 x 1600) */
+        @media screen and (min-width: 1280px) and (max-width: 2560px) {
+            .header {
+                padding: 1rem 2rem;
+            }
+
+            .logo {
+                width: 100px;
+                height: 50px;
+            }
+
+            .main-content {
+                height: calc(100vh - 120px);
+            }
+
+            .footer {
+                gap: 4rem;
+            }
+
+            .footer a {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+
+        /* iPhone 12 (390 x 844) */
+        @media screen and (max-width: 428px) {
+            .header {
+                padding: 0.5rem;
+                height: 50px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 30px;
+            }
+
+            .lang-switch {
+                padding: 0.3rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                height: calc(100vh - 100px);
+            }
+
+            .footer {
+                gap: 1rem;
+                height: 50px;
+                padding: 0.5rem;
+            }
+
+            .footer a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+
+        /* 豎屏模式下的特殊處理 */
+        @media screen and (max-width: 428px) and (orientation: portrait) {
+            .main-content {
+                height: calc(100vh - 100px);
+            }
+        }
+
+        /* 橫屏模式下的特殊處理 */
+        @media screen and (max-height: 428px) and (orientation: landscape) {
+            .header {
+                height: 40px;
+            }
+
+            .main-content {
+                height: calc(100vh - 80px);
+            }
+
+            .footer {
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="./SHBC-logo.jpg" alt="Company Logo" class="logo">
+        <button class="lang-switch" onclick="toggleLanguage()">EN/中文</button>
+    </header>
+
+    <iframe src="https://interactive-avatar-next-js-demo-eta.vercel.app/" class="main-content"></iframe>
+
+    <footer class="footer">
+        <a href="./Weider1007_home.html" id="home">AI</a>
+        <a href="./產品Product.html" id="products">產品</a>
+        <a href="./資訊INFO1007.html" id="info">資訊</a>
+    </footer>
+
+    <script>
+        let currentLang = 'zh';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const translations = {
+                zh: {
+                    products: '產品',
+                    info: '資訊'
+                },
+                en: {
+                    products: 'Product',
+                    info: 'INFO'
+                }
+            };
+
+            document.getElementById('products').textContent = translations[currentLang].products;
+            document.getElementById('info').textContent = translations[currentLang].info;
+        }
+    </script>
+</body>
+</html>

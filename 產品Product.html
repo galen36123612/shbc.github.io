@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 80px;
+            height: 40px;
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .info-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-left: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .notice {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .footer a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 13寸MacBook Pro */
+        @media screen and (min-width: 1280px) and (max-width: 2560px) {
+            .main-content {
+                padding: 3rem;
+                gap: 3rem;
+            }
+
+            .product-image {
+                min-width: 400px;
+            }
+
+            .footer {
+                gap: 4rem;
+            }
+
+            .footer a {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+
+        /* iPhone 12 */
+        @media screen and (max-width: 428px) {
+            .header {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                width: 60px;
+                height: 30px;
+            }
+
+            .main-content {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            .product-image {
+                min-width: unset;
+            }
+
+            .product-title {
+                font-size: 1.5rem;
+            }
+
+            .info-section h2 {
+                font-size: 1.2rem;
+            }
+
+            .footer {
+                gap: 1rem;
+            }
+
+            .footer a {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="./SHBC-logo.jpg" alt="Company Logo" class="logo">
+        <button class="lang-switch" onclick="toggleLanguage()">EN/中文</button>
+    </header>
+
+    <main class="main-content">
+        <div class="product-image">
+            <img src="./Immune_digestive.jpg" alt="Product Image" id="product-image">
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title" id="product-title"></h1>
+
+            <div class="info-section">
+                <h2 id="info-title"></h2>
+                <ul id="info-list"></ul>
+            </div>
+
+            <div class="info-section">
+                <h2 id="about-title"></h2>
+                <ul id="about-list"></ul>
+            </div>
+
+            <div class="notice">
+                <h2 id="notice-title"></h2>
+                <ul id="notice-list"></ul>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a href="./Weider1007_home.html" id="home">AI</a>
+        <a href="./產品Product.html" id="products">產品</a>
+        <a href="./資訊INFO1007.html" id="info">資訊</a>
+    </footer>
+
+    <script>
+        const content = {
+            zh: {
+                title: '威德益生菌 健腸+免疫配方',
+                infoTitle: '產品資訊',
+                info: [
+                    '商品形式：粗顆粒',
+                    '包裝：每盒30包/每包3公克',
+                    '食用建議：',
+                    ['成人1天2-3包 加強保護',
+                    '孩童1天1包 基礎打底',
+                    '餐前餐後均可食用',
+                    '可將顆粒直接倒入口中使其溶化，或加入冷飲沖泡溶解後食用(小於30°C)']
+                ],
+                aboutTitle: '關於此商品',
+                about: [
+                    'BACO17專利倍活菌(芽孢乳酸菌)、LCW23專利副乾酪乳桿菌、ST4專利嗜熱鏈球菌：耐酸鹼耐熱，可安全抵達腸道定殖，提升益生菌存活率，增強免疫系統，改善腸道不適等症狀（便秘、腹瀉、脹氣)',
+                    '13種複合活菌：更全面的提升整體健康。',
+                    '3種益生元(Prebiotics)：維持腸道菌叢平衡。',
+                    '5種營養素： 維持腸道黏膜健康。'
+                ],
+                noticeTitle: '注意事項：',
+                notice: [
+                    '請勿以熱開水沖泡｡',
+                    '本產品含有牛奶，大豆及其製品。',
+                    '請置於兒童不易拿取之處，避免光照並存於陰涼乾燥處。'
+                ],
+                nav: {
+                    products: '產品',
+                    info: '資訊'
+                }
+            },
+            en: {
+                title: 'WEIDER Probiotics Digestive & Immune support',
+                infoTitle: 'Product Information',
+                info: [
+                    'Form: Granular',
+                    'Packaging: 30 sachets per box / 3g per sachet',
+                    'Suggested Use:',
+                    ['Adults: 2-3 sachets per day for enhanced protection.',
+                    'Children: 1 sachet per day for foundational support.',
+                    'Can be taken before or after meals.',
+                    'Granules can be poured directly into the mouth to dissolve or mixed with cold drinks (below 30°C) to dissolve and consume.']
+                ],
+                aboutTitle: 'About the Product',
+                about: [
+                    'BACO17 Patented Bacillus Coagulans, LCW23 Patented Lactobacillus Paracasei, ST4 Patented Streptococcus Thermophilus: Acid and heat resistant, safely reach and colonize the intestines, enhance probiotic survival rates, boost the immune system, and alleviate digestive discomfort (constipation, diarrhea and bloating).',
+                    '13 Strains of Active Probiotics: Provides comprehensive health improvement.',
+                    '3 Types of Prebiotics: Maintain gut flora balance.',
+                    '5 Nutrients: Support intestinal mucosal health.'
+                ],
+                noticeTitle: 'Important Notes',
+                notice: [
+                    'Do not mix with hot water.',
+                    'This product contains milk, soy, and their derivatives.',
+                    'Keep out of reach of children. Store in a cool, dry place, away from direct light.'
+                ],
+                nav: {
+                    products: 'Product',
+                    info: 'INFO'
+                }
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function updateContent() {
+            const lang = content[currentLang];
+
+            document.getElementById('product-title').textContent = lang.title;
+            document.getElementById('info-title').textContent = lang.infoTitle;
+            document.getElementById('about-title').textContent = lang.aboutTitle;
+            document.getElementById('notice-title').textContent = lang.noticeTitle;
+
+            // Update info list
+            const infoList = document.getElementById('info-list');
+            infoList.innerHTML = '';
+            lang.info.forEach(item => {
+                if (Array.isArray(item)) {
+                    const li = document.createElement('li');
+                    const subUl = document.createElement('ul');
+                    item.forEach(subItem => {
+                        const subLi = document.createElement('li');
+                        subLi.textContent = subItem;
+                        subUl.appendChild(subLi);
+                    });
+                    li.appendChild(subUl);
+                    infoList.appendChild(li);
+                } else {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    infoList.appendChild(li);
+                }
+            });
+
+            // Update about list
+            const aboutList = document.getElementById('about-list');
+            aboutList.innerHTML = lang.about.map(item => `<li>${item}</li>`).join('');
+
+            // Update notice list
+            const noticeList = document.getElementById('notice-list');
+            noticeList.innerHTML = lang.notice.map(item => `<li>${item}</li>`).join('');
+
+            // Update navigation
+            document.getElementById('products').textContent = lang.nav.products;
+            document.getElementById('info').textContent = lang.nav.info;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateContent();
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
+        }
+
+        // Initial content load
+        updateContent();
+    </script>
+</body>
+</html>
