@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            width: 80px;
+            height: 40px;
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .content-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .content-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .partner-section, .distribution-section {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .partner-section h2, .distribution-section h2 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .partner-section img, .distribution-section img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: #f8f8f8;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .footer a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 13寸MacBook Pro */
+        @media screen and (min-width: 1280px) and (max-width: 2560px) {
+            .main-content {
+                padding: 3rem;
+            }
+
+            .footer {
+                gap: 4rem;
+            }
+
+            .footer a {
+                font-size: 1.1rem;
+                padding: 0.7rem 1.5rem;
+            }
+        }
+
+        /* 平板和手機 */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 18px;
+            }
+
+            .header {
+                padding: 0.8rem;
+                height: 70px;
+            }
+
+            .logo {
+                width: 70px;
+                height: 35px;
+            }
+
+            .lang-switch {
+                padding: 0.8rem 1.2rem;
+                font-size: 1.2rem;
+                border-radius: 6px;
+            }
+
+            .main-content {
+                padding: 1.5rem;
+            }
+
+            .content-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+                line-height: 1.4;
+                color: #1a1a1a;
+            }
+
+            .content-section p {
+                font-size: 1.2rem;
+                line-height: 1.8;
+                margin-bottom: 1.5rem;
+                color: #202020;
+            }
+
+            .partner-section, .distribution-section {
+                margin-top: 3rem;
+            }
+
+            .partner-section h2, .distribution-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 1.5rem;
+                color: #1a1a1a;
+            }
+
+            .partner-section img, .distribution-section img {
+                width: 120px;
+                margin: 15px;
+            }
+
+            .footer {
+                gap: 1.5rem;
+                height: 70px;
+                padding: 0.8rem;
+            }
+
+            .footer a {
+                font-size: 1.2rem;
+                padding: 0.8rem 1.2rem;
+                color: #202020;
+            }
+
+            /* 增加文字間距 */
+            .content-section {
+                letter-spacing: 0.5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="./SHBC-logo.jpg" alt="Company Logo" class="logo">
+        <button class="lang-switch" onclick="toggleLanguage()">EN/中文</button>
+    </header>
+
+    <main class="main-content">
+        <h1 class="content-title" id="content-title"></h1>
+        <div class="content-section" id="content-section"></div>
+
+        <!-- Partners Section -->
+        <div class="partner-section">
+            <h2 id="partners-title"></h2>
+            <img src="./DKSH.png" alt="Partner Logo 1">
+        </div>
+
+        <!-- Distribution Channels Section -->
+        <div class="distribution-section">
+            <h2 id="distribution-title"></h2>
+            <img src="./Wellcome.png" alt="Channel Logo 1">
+            <img src="./YATA.png" alt="Channel Logo 2">
+            <img src="./CITI.png" alt="Channel Logo 3">
+        </div>
+    </main>
+
+    <footer class="footer">
+        <a href="./index.html" id="home">AI</a>
+        <a href="./Product.html" id="products">產品</a>
+        <a href="./Info.html" id="info">資訊</a>
+    </footer>
+
+    <script>
+        const content = {
+            zh: {
+                title: '關於我們',
+                content: `
+                    <p>福又華生物科技公司成立於2023年，專注於保健食品領域，並推出O2O平台。線下通過亞洲領先的通路商"大昌華嘉"，將產品鋪設於超市與藥妝店；線上則結合AI技術與KOL進行品牌推廣，打造全方位的線上線下網絡。</p>
+                    <p>福又華股東來自生物科技及網絡科技領域的知名企業，擁有超過40年的行業經驗。公司強調產品自主研發，從配方設計、生產到通路銷售，均以滿足消費者需求為目標。旗下主力產品"威德益生菌"源自美國擁有85年歷史的品牌，以"立即有效、長期有效、實證有效"三大核心功效著稱，已成為美式大賣場十大暢銷產品之一。</p>
+                    <p>2024年，福又華率先推出亞洲首位"AI營養師"為KOL流量帶來全新商業價值，為保健食品行業帶來全新發展機遇。</p>
+                    <p>誠摯歡迎零售通路商與KOL與我們合作，共創雙贏！</p>
+                    <p>聯繫方式：b2b@shbc.bio</p>
+                    <p>台灣: 台北市內湖路一段16號4樓</p>
+                    <p>香港: 上環干諾道中90號大新行18樓</p>
+                `,
+                nav: {
+                    products: '產品',
+                    info: '資訊'
+                },
+                partnersTitle: '合作夥伴',
+                distributionTitle: '銷售渠道'
+            },
+            en: {
+                title: 'About Us',
+                content: `
+                    <p>Founded in 2023, Fuyouda Biotechnology focuses on the health supplement industry and has launched an O2O platform. Offline, we collaborate with Asia's leading distributor, DKSH, to place our products in supermarkets and drugstores, while online we integrate AI technology with KOLs to promote our brand and build a comprehensive on-line to off-line sales network.</p>
+                    <p>SHBC shareholders come from renowned companies in the biotechnology and internet technology sectors, with over 40 years of industry experience. The company emphasizes independent product development, with a focus on meeting consumer needs from formula design and production to distribution and sales. Its flagship product, "WEIDER Probiotics," originates from an 85-year-old American brand, known for its three core benefits: immediate effectiveness, long-term effectiveness, and proven results. It has become one of the top ten best-selling products in major American retail chains.</p>
+                    <p>In 2024, SHBC pioneered the launch of Asia's first "AI Nutritionist," bringing new commercial value to KOL traffic and creating fresh development opportunities for the health supplement industry.</p>
+                    <p>We sincerely welcome retail distributors and KOLs to collaborate with us for a mutually beneficial partnership!</p>
+                    <p>Contact us: b2b@shbc.bio</p>
+                    <p>Taiwan: No. 16, Ln. 120, Sec. 1, Neihu Rd. Taipei City, Taiwan</p>
+                    <p>HK: 18F Sun House, 90 Connaught Road Central, Central, Hong Kong</p>
+                `,
+                nav: {
+                    products: 'Product',
+                    info: 'INFO'
+                },
+                partnersTitle: 'Partners',
+                distributionTitle: 'Distribution Channels'
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function updateContent() {
+            const lang = content[currentLang];
+
+            document.getElementById('content-title').textContent = lang.title;
+            document.getElementById('content-section').innerHTML = lang.content;
+
+            // Update navigation
+            document.getElementById('products').textContent = lang.nav.products;
+            document.getElementById('info').textContent = lang.nav.info;
+
+            // Update partners and distribution sections
+            document.getElementById('partners-title').textContent = lang.partnersTitle;
+            document.getElementById('distribution-title').textContent = lang.distributionTitle;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateContent();
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
+        }
+
+        // Initial content load
+        updateContent();
+    </script>
+</body>
+</html>
