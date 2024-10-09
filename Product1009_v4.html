@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            padding-top: 60px; /* 為固定導航欄預留空間 */
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .logo {
+            width: 60px;
+            height: 30px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .lang-switch {
+            padding: 0.5rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .product-image {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-info {
+            width: 100%;
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .info-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .info-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #1a1a1a;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-left: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 1rem;
+            color: #202020;
+        }
+
+        .notice {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* 縮短間距 */
+        }
+
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 20px; /* 橢圓形 */
+            cursor: pointer;
+            font-size: 0.9rem;
+            min-width: 100px; /* 增加最小寬度 */
+            text-align: center; /* 文字置中 */
+        }
+
+        .lang-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+
+        .lang-options a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+            min-width: 100px; /* 與按鈕寬度一致 */
+            text-align: center; /* 文字置中 */
+        }
+
+        .lang-switch-container:hover .lang-options {
+            display: block;
+        }
+
+
+        @media screen and (min-width: 768px) {
+            .main-content {
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 2rem;
+                gap: 3rem;
+            }
+
+            .product-image {
+                flex: 1;
+                position: sticky;
+                top: 80px;
+            }
+
+            .product-info {
+                flex: 1;
+            }
+
+            .product-title {
+                font-size: 1.8rem;
+            }
+
+            .info-section h2 {
+                font-size: 1.5rem;
+            }
+
+            li {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+  <header class="header">
+  <img src="./SHBC-logo.jpg" alt="Company Logo" class="logo">
+  <div class="nav-container">
+      <a href="./index.html" class="nav-link" id="home">AI</a>
+      <a href="./Product1009.html" class="nav-link" id="products">Product</a>
+      <a href="./Info.html" class="nav-link" id="info">Info</a>
+      <div class="lang-switch-container">
+          <button class="lang-switch">Eng</button>
+          <div class="lang-options">
+              <a href="#" onclick="changeLanguage('en')">ENG</a>
+              <a href="#" onclick="changeLanguage('zh')">中文</a>
+          </div>
+      </div>
+  </div>
+</header>
+
+    <main class="main-content">
+        <div class="product-image">
+            <img src="./Immune_digestive.jpg" alt="Product Image" id="product-image">
+        </div>
+
+        <div class="product-info">
+            <h1 class="product-title" id="product-title"></h1>
+
+            <div class="info-section">
+                <h2 id="info-title"></h2>
+                <ul id="info-list"></ul>
+            </div>
+
+            <div class="info-section">
+                <h2 id="about-title"></h2>
+                <ul id="about-list"></ul>
+            </div>
+
+            <div class="notice">
+                <h2 id="notice-title"></h2>
+                <ul id="notice-list"></ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const content = {
+          zh: {
+              title: '威德益生菌 健腸+免疫配方',
+              infoTitle: '產品資訊',
+              info: [
+                  '商品形式：粗顆粒',
+                  '包裝：每盒30包/每包3公克',
+                  '食用建議：',
+                  ['成人1天2-3包 加強保護',
+                  '孩童1天1包 基礎打底',
+                  '餐前餐後均可食用',
+                  '可將顆粒直接倒入口中使其溶化，或加入冷飲沖泡溶解後食用(小於30°C)']
+              ],
+              aboutTitle: '關於此商品',
+              about: [
+                  'BACO17專利倍活菌(芽孢乳酸菌)、LCW23專利副乾酪乳桿菌、ST4專利嗜熱鏈球菌：耐酸鹼耐熱，可安全抵達腸道定殖，提升益生菌存活率，增強免疫系統，改善腸道不適等症狀（便秘、腹瀉、脹氣)',
+                  '13種複合活菌：更全面的提升整體健康。',
+                  '3種益生元(Prebiotics)：維持腸道菌叢平衡。',
+                  '5種營養素： 維持腸道黏膜健康。'
+              ],
+              noticeTitle: '注意事項：',
+              notice: [
+                  '請勿以熱開水沖泡｡',
+                  '本產品含有牛奶，大豆及其製品。',
+                  '請置於兒童不易拿取之處，避免光照並存於陰涼乾燥處。'
+              ],
+              nav: {
+                  products: '產品',
+                  info: '簡介'
+              }
+          },
+          en: {
+              title: 'WEIDER Probiotics Digestive & Immune support',
+              infoTitle: 'Product Information',
+              info: [
+                  'Form: Granular',
+                  'Packaging: 30 sachets per box / 3g per sachet',
+                  'Suggested Use:',
+                  ['Adults: 2-3 sachets per day for enhanced protection.',
+                  'Children: 1 sachet per day for foundational support.',
+                  'Can be taken before or after meals.',
+                  'Granules can be poured directly into the mouth to dissolve or mixed with cold drinks (below 30°C) to dissolve and consume.']
+              ],
+              aboutTitle: 'About the Product',
+              about: [
+                  'BACO17 Patented Bacillus Coagulans, LCW23 Patented Lactobacillus Paracasei, ST4 Patented Streptococcus Thermophilus: Acid and heat resistant, safely reach and colonize the intestines, enhance probiotic survival rates, boost the immune system, and alleviate digestive discomfort (constipation, diarrhea and bloating).',
+                  '13 Strains of Active Probiotics: Provides comprehensive health improvement.',
+                  '3 Types of Prebiotics: Maintain gut flora balance.',
+                  '5 Nutrients: Support intestinal mucosal health.'
+              ],
+              noticeTitle: 'Important Notes',
+              notice: [
+                  'Do not mix with hot water.',
+                  'This product contains milk, soy, and their derivatives.',
+                  'Keep out of reach of children. Store in a cool, dry place, away from direct light.'
+              ],
+              nav: {
+                  products: 'Product',
+                  info: 'INFO'
+              }
+          }
+        };
+
+        let currentLang = 'zh';
+
+        // Toggle display of language dropdown
+        const langSwitch = document.querySelector('.lang-switch');
+        const langOptions = document.querySelector('.lang-options');
+
+        langSwitch.addEventListener('click', () => {
+            langOptions.style.display = langOptions.style.display === 'block' ? 'none' : 'block';
+        });
+
+        function updateContent() {
+            const lang = content[currentLang];
+
+            document.getElementById('product-title').textContent = lang.title;
+            document.getElementById('info-title').textContent = lang.infoTitle;
+            document.getElementById('about-title').textContent = lang.aboutTitle;
+            document.getElementById('notice-title').textContent = lang.noticeTitle;
+
+            // Update info list
+            const infoList = document.getElementById('info-list');
+            infoList.innerHTML = '';
+            lang.info.forEach(item => {
+                if (Array.isArray(item)) {
+                    const li = document.createElement('li');
+                    const subUl = document.createElement('ul');
+                    item.forEach(subItem => {
+                        const subLi = document.createElement('li');
+                        subLi.textContent = subItem;
+                        subUl.appendChild(subLi);
+                    });
+                    li.appendChild(subUl);
+                    infoList.appendChild(li);
+                } else {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    infoList.appendChild(li);
+                }
+            });
+
+            // Update about list
+            const aboutList = document.getElementById('about-list');
+            aboutList.innerHTML = lang.about.map(item => `<li>${item}</li>`).join('');
+
+            // Update notice list
+            const noticeList = document.getElementById('notice-list');
+            noticeList.innerHTML = lang.notice.map(item => `<li>${item}</li>`).join('');
+
+            // Update navigation
+            document.getElementById('products').textContent = lang.nav.products;
+            document.getElementById('info').textContent = lang.nav.info;
+        }
+
+        function changeLanguage(lang) {
+            currentLang = lang;
+            updateContent();
+            document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
+            langSwitch.textContent = currentLang === 'zh' ? '中文' : 'ENG';
+        }
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            changeLanguage('zh');
+        });
+    </script>
+</body>
+</html>
