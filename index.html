@@ -146,8 +146,12 @@
 
     <main class="content">
         <div class="iframe-container">
-          <iframe src="https://interactive-avatar-next-js-demo-eta.vercel.app/"
-          allow="microphone"></iframe>
+          <iframe
+                src="https://interactive-avatar-next-js-demo-eta.vercel.app/"
+                allow="microphone *; camera *; midi *; encrypted-media *; display-capture *"
+                allowfullscreen="true"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals"
+            ></iframe>
 
         </div>
     </main>
