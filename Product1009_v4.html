@@ -305,7 +305,7 @@
               ],
               nav: {
                   products: 'Product',
-                  info: 'INFO'
+                  info: 'info'
               }
           }
         };
@@ -367,6 +367,8 @@
             updateContent();
             document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
             langSwitch.textContent = currentLang === 'zh' ? '中文' : 'ENG';
+            const langOptions = document.querySelector('.lang-options');
+                  langOptions.style.display = 'none';
         }
 
         // 初始化
