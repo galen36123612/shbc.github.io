@@ -190,15 +190,18 @@
 
           if (lang === 'en') {
               navLinks[1].textContent = 'Product';
-              navLinks[2].textContent = 'INFO';
+              navLinks[2].textContent = 'info';
               langSwitch.textContent = 'ENG';
           } else {
               navLinks[1].textContent = '產品';
               navLinks[2].textContent = '簡介';
               langSwitch.textContent = '中文';
           }
-          currentLanguage = lang;
+          const langOptions = document.querySelector('.lang-options');
+              langOptions.style.display = 'none';
+              currentLanguage = lang;
       }
+        
 
       // Scroll to hide/show the header
       let lastScroll = 0;
