@@ -383,9 +383,27 @@ function changeLanguage(lang) {
     currentLang = lang;
     updateContent();
     document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
-    langSwitch.textContent = currentLang === 'zh' ? 'ENG' : '中文';
+
+    // Update the language switch button text
+    if (currentLang === 'zh') {
+        langSwitch.textContent = 'ENG'; // Show 'ENG' when content is in Chinese
+    } else {
+        langSwitch.textContent = '中文'; // Show '中文' when content is in English
+    }
+
     langOptions.style.display = 'none';
 }
+
+// Update the click event listeners for language options
+document.querySelector('a[onclick="changeLanguage(\'en\')"]').onclick = function(e) {
+    e.preventDefault();
+    changeLanguage('en');
+};
+
+document.querySelector('a[onclick="changeLanguage(\'zh\')"]').onclick = function(e) {
+    e.preventDefault();
+    changeLanguage('zh');
+};
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
