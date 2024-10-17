@@ -383,7 +383,7 @@ function changeLanguage(lang) {
     currentLang = lang;
     updateContent();
     document.documentElement.lang = currentLang === 'zh' ? 'zh-TW' : 'en';
-    langSwitch.textContent = currentLang === 'zh' ? '中文' : 'ENG';
+    langSwitch.textContent = currentLang === 'zh' ? 'ENG' : '中文';
     langOptions.style.display = 'none';
 }
 
