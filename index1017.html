@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHBC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        .content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding-top: 50px; /* 為導航欄留出空間 */
+        }
+        .iframe-container {
+            width: 100%;
+            height: 100%;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .permission-notice {
+            display: none;
+            position: fixed;
+            top: 120px; /* 調整位置以避免被導航欄遮擋 */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #fff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            text-align: center;
+        }
+        .permission-notice.show {
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .permission-notice {
+                padding: 20px 25px;
+            }
+        }
+
+        /* 導航欄樣式 */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: transform 0.3s ease, top 0.3s ease;
+        }
+        .header.hidden {
+            transform: translateY(-100%);
+        }
+        .logo {
+            width: 60px;
+            height: 30px;
+            display: block;
+            cursor: pointer;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: #333;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        .lang-switch-container {
+            position: relative;
+        }
+        .lang-switch {
+            padding: 0.5rem 1rem;
+            background-color: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: center;
+        }
+        .lang-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .lang-options a {
+            display: block;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            color: #333;
+            min-width: 100px;
+            text-align: center;
+        }
+        .lang-options a:hover {
+            background-color: #f0f0f0;
+        }
+        .lang-switch-container:hover .lang-options {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">
+            <img src="./SHBC-logo.jpg" alt="SHBC Logo" style="width: 60px; height: 30px;">
+        </a>
+        <div class="nav-container">
+            <a href="./index.html" class="nav-link">AI</a>
+            <a href="./Product1017.html" class="nav-link" id="products">產品</a>
+            <a href="./Info1017.html" class="nav-link" id="info">簡介</a>
+            <div class="lang-switch-container">
+                <button class="lang-switch">ENG</button>
+                <div class="lang-options">
+                    <a href="#" onclick="changeLanguage('en');">ENG</a>
+                    <a href="#" onclick="changeLanguage('zh');">中文</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="content">
+        <div class="iframe-container">
+            <iframe
+                src="https://interactive-avatar-next-js-demo-eta.vercel.app/"
+                allow="microphone *; camera *; midi *; encrypted-media *; display-capture *"
+                allowfullscreen="true"
+                sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-downloads allow-modals"
+            ></iframe>
+        </div>
+    </main>
+
+    <script>
+        let currentLanguage = 'zh'; // 默認語言
+
+        function changeLanguage(lang) {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const langSwitch = document.querySelector('.lang-switch');
+
+            if (lang === 'en') {
+                navLinks[1].textContent = 'Product';
+                navLinks[2].textContent = 'info';
+                langSwitch.textContent = 'ENG';
+            } else {
+                navLinks[1].textContent = '產品';
+                navLinks[2].textContent = '簡介';
+                langSwitch.textContent = '中文';
+            }
+            currentLanguage = lang;
+        }
+
+        // Scroll to hide/show the header
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll <= 0) {
+                header.classList.remove('hidden');
+                return;
+            }
+
+            if (currentScroll > lastScroll && !header.classList.contains('hidden')) {
+                // Scrolling down
+                header.classList.add('hidden');
+            } else if (currentScroll < lastScroll && header.classList.contains('hidden')) {
+                // Scrolling up
+                header.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body>
+</html>
